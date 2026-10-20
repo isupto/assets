@@ -1,0 +1,2 @@
+# Keep LF in the working tree on every OS (Prettier and the prek line-ending hook expect it).
+* text=auto eol=lf

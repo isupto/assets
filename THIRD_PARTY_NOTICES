@@ -23,3 +23,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Recursive
+
+Copyright 2020 The Recursive Project Authors (https://github.com/arrowtype/recursive)
+
+Licensed under the SIL Open Font License, Version 1.1 (https://openfontlicense.org).
+The banners in banner/ draw their lettering from this font as outlines. The font
+itself is downloaded at build time and not distributed here.

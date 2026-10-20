@@ -1,0 +1,14 @@
+// Wrangler config for static.is-up.to, the Cloudflare Pages project "is-up-to-assets".
+//
+// CI generates the icons and banners and deploys them on pushes to main. By hand:
+//
+//   uv run icon/script.py && uv run banner/script.py
+//   pnpm dlx wrangler pages deploy
+//
+// Pages publishes everything in this folder, including this file (it holds nothing secret).
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "is-up-to-assets",
+  "pages_build_output_dir": ".",
+  "compatibility_date": "2026-09-28"
+}

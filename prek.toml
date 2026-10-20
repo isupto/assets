@@ -1,0 +1,17 @@
+# Git hooks, run by prek (https://prek.j178.dev). Set up once per clone with `prek install`.
+# Run everything by hand with `prek run --all-files`.
+#:schema https://www.schemastore.org/prek.json
+
+[[repos]]
+repo = "builtin"
+hooks = [
+  { id = "trailing-whitespace" },
+  { id = "end-of-file-fixer" },
+  { id = "mixed-line-ending", args = ["--fix=lf"] },
+  { id = "check-merge-conflict" },
+  { id = "check-case-conflict" },
+  { id = "check-illegal-windows-names" },
+  { id = "check-added-large-files" },
+  { id = "check-jsonc", files = "^wrangler\\.jsonc$" },
+  { id = "detect-private-key" },
+]

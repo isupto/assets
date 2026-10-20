@@ -1,0 +1,10 @@
+version: 2
+updates:
+  # Keep workflow actions current.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]

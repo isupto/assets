@@ -1,0 +1,40 @@
+name: Deploy
+
+# Runs only for pushes to main (never for pull requests), so fork PRs can't reach the Cloudflare token.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    name: Deploy to Cloudflare Pages
+    needs: ci
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      # The files CI generated and checked, staged without the repo's config.
+      - uses: actions/download-artifact@v8
+        with:
+          name: site
+          path: _site
+
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy _site --project-name=is-up-to-assets --branch=main
